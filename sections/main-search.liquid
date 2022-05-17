@@ -1,0 +1,127 @@
+<div class="template-search spaced-section{% unless search.performed and search.results.size > 0 %} template-search--empty{% endunless %}">
+  <div class="center search_page">
+    {%- if search.performed -%}
+      <h1 class="h2">{{ 'templates.search.title' | t }}</h1>
+    {%- else -%}
+      <h1 class="h2">{{ 'general.search.search' | t }}</h1>
+    {%- endif -%}
+    <div class="template-search__search">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search">
+        <div class="field">
+          <input
+            class="search__input field__input"
+            id="Search-In-Template"
+            type="search"
+            name="q"
+            value="{{ search.terms | escape }}"
+            {% if search.performed %}autofocus{% endif %}
+            placeholder="{{ 'general.search.search' | t }}"
+          >
+          <label class="field__label" for="Search-In-Template" aria-hidden="true">{{ 'general.search.search' | t }}</label>
+          <input name="options[prefix]" type="hidden" value="last">
+          <button type="submit" class="search__button btn" aria-label="{{ 'general.search.search' | t }}">
+            {{ 'general.search.submit' | t }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+   {% render 'facets', results: search, enable_sorting: section.settings.enable_sorting %}
+
+  
+<div id="ProductGridContainer">
+  {%- paginate search.results by section.settings.products_per_page -%}
+
+    {%- if search.results.size == 0 -%}
+      <div class="collection collection--empty" id="product-grid" data-id="{{ section.id }}">
+        <div class="loading-overlay">
+          <div class="loading-overlay__spinner">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div class="title-wrapper center">
+          <div class="title alert-danger alert">
+            {{ 'sections.facets.empty' | t }}
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="collection">
+        <div class="loading-overlay">
+          <div class="loading-overlay__spinner">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </div>
+        
+        <p class="collection-product-count light" role="status" style="display: none;">
+          {{ 'sections.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
+        </p>
+
+        <ul id="product-grid" data-id="{{ section.id }}" class="row">
+          {% assign i = 1 %}
+          {%- for product in search.results -%}
+            <li>
+              {% render 'product-card-grid', product_card_product: product, media_size: settings.image_ratio, product_count: {{i}}, show_secondary_image: settings.show_secondary_image, show_vendor: settings.show_vendor%}
+              {% assign i = i | plus: 1 %}
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="pagination-block">
+          <p class="collection-product-count col-md-6 " role="status" >
+              {% assign current_first_item = paginate.current_offset | plus:1 %}
+              {% if paginate.pages == paginate.current_page %}
+              {% assign current_displayed = paginate.items | modulo:paginate.page_size %}
+              {% assign current_last_item = paginate.items %}
+              {% else %}
+              {% assign current_displayed = paginate.page_size %}
+              {% assign current_last_item = paginate.current_offset | plus:paginate.page_size %}
+              {% endif %}
+              {{ 'general.pagination.showing' | t }} {{ current_first_item }}{% unless current_first_item == current_last_item %} -{{ current_last_item }}{% endunless %} {{ 'general.pagination.of' | t }} {{ paginate.items }} {{ 'general.pagination.items' | t }}
+          </p>
+        {%- if paginate.pages > 1 -%}
+           <div class="col-md-6 pagination-view">
+            {% render 'pagination', paginate: paginate, anchor: '', class: '' %}
+             </div>
+        {%- endif -%}
+      </div>
+      </div>
+  {%- endif -%}
+  {%- endpaginate -%}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "header",
+      "content": "Sorting"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    }
+  ]
+}
+{% endschema %}

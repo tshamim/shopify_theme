@@ -1,0 +1,283 @@
+{% comment %} convert our dates to Number of seconds 
+              since 1970-01-01 00:00:00 UTC {% endcomment %}
+{% assign time = 'now' | date: '%s' %}
+
+
+  <div class="ishispecialdeal" >
+     <div class="page-width">
+         <div class="row">
+          {% if section.settings.title1 != blank %}
+              <div class="section-header center">
+                <h2 class="home-title">{{ section.settings.title1 | escape }}</h2>
+              </div>
+            {% endif %}
+          <div class="product_content">
+                   {% assign i = 1 %}
+        <div class="specialdealcarousel-{{section.id}} products-display owl-carousel slider-with-options owl-theme"
+             data-small="2" 
+             data-mobile="1" 
+             data-tablet="1"
+             data-laptop="2"
+             data-desktop="2"
+             data-autoplay="false"
+             data-dots="false"
+             data-loop="true"
+             data-nav="true"
+             data-rewind="true">
+          {% for block in section.blocks %}
+            {% assign datestart = block.settings.startdate | date: "%s" %}
+            {% assign dateend = block.settings.enddate |  date: "%s" %}
+            {% if datestart <= time and dateend > time %}
+              {%- assign product_card_product = all_products[block.settings.product] -%}
+              {%- assign media_size = settings.image_ratio -%}
+              {%- assign show_secondary_image = settings.show_secondary_image -%}
+              {%- assign show_vendor = settings.show_vendor -%}
+              <div class="grid__item grid__item--{{section.id}} productdeal"
+                data-dealcounter="{{ block.settings.enddate }} 00:00:00"
+                >
+                  <div class="card-wrapper">
+                      <div class="card card--product col-md-6 col-sm-6 col-xs-12" tabindex="-1">
+                        <div class="card__inner ">
+                         
+                              <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link">
+                              {%- if product_card_product.featured_media -%}
+                                {%- liquid
+                                  assign featured_media_aspect_ratio = product_card_product.featured_media.aspect_ratio
+
+                                  if product_card_product.featured_media.aspect_ratio == nil
+                                    assign featured_media_aspect_ratio = 1
+                                  endif
+                                -%}
+                                  <div class="media media--transparent media--{{ media_size }} media--hover-effect"
+                                    {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
+                                  >
+                                    <img 
+                                      data-src="{{ product_card_product.featured_media | img_url: 'master' }}"
+                                      sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                      alt="{{ product_card_product.featured_media.alt | escape }}"
+                                      loading="lazy"
+                                      class="grid-view-item__image motion-reduce lazyload"
+                                      width="{{ product_card_product.featured_media.width }}"
+                                      height="{{ product_card_product.featured_media.height }}"
+                                    >
+                                    
+              {%- if product_card_product.media[1] != nil and show_secondary_image -%}
+                <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
+                  {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+                  {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+                  {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+                  {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+                  {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+                  data-src="{{ product_card_product.media[1] | img_url: 'master' }}"
+                  sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ product_card_product.media[1].alt | escape }}"
+                  loading="lazy"
+                  class="motion-reduce lazyload"
+                width="{{ product_card_product.media[1].width }}"
+                height="{{ product_card_product.media[1].height }}"
+                >
+              {%- endif -%}
+                                  </div>
+                                  {%- if product_card_product.available == false and settings.show_soldout -%}
+                                     <span class="outstock-overlay">{{ 'products.product.sold_out' | t }}</span>
+                                  {%- endif -%}
+                              {%- else -%}
+                                <div class="card__content"><h2 class="card__text h2">{{ product_card_product.title }}</h2></div>
+                              {%- endif -%}
+                              </a>
+                          {%- if product_card_product.compare_at_price > product_card_product.price and product_card_product.available and settings.show_sale -%} 
+                            <div class="product-flags ">
+                              <span class="flag sale">{{ 'products.product.on_sale' | t }}</span>
+                            </div>
+                          {%- endif -%}
+                          
+                         
+                        </div>
+                      </div>
+
+                      <div class="card-information col-md-6 col-sm-6 col-xs-12">
+                        <div class="card-information__wrapper">
+                          <span class="shopify-product-reviews-badge" data-id="{{ product_card_product.id }}"></span>
+                          {%- if show_vendor -%}
+                            <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                            <div class="caption-with-letter-spacing vendor">{{ product_card_product.vendor }}</div>
+                          {%- endif -%}
+                            <span class="card-information__text h5">
+                              <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link">
+                              {{ product_card_product.title | escape }}
+                              </a>
+                            </span>
+                          {% comment %} TODO: metafield {% endcomment %}
+                          <span class="caption-large light">{{ block.settings.description | escape }}</span>
+
+                          {% render 'price', product: product_card_product, price_class: '' %}
+                           {%- assign truncate_desc =  section.settings.show_description | plus: 0 -%}
+                          {%- if truncate_desc > 0 and product_card_product.description.size > 0 -%}
+                          <div class="product-desc"> {{ product_card_product.description | strip_html | truncate: truncate_desc  }}</div>
+                           {%- endif -%}
+                           {% if block.settings.startdate != blank and block.settings.enddate != blank %}
+                              <div class="countdowncontainer">
+                                <div class="countdown">
+                                    <div class="countdown-days data">00</div>
+                                </div>
+                                <div class="countdown">
+                                    <div class="countdown-hours data">00</div>
+                                </div>
+                                <div class="countdown">
+                                    <div class="countdown-minutes data">00</div>
+                                </div>
+                                <div class="countdown">
+                                    <div class="countdown-seconds data">00</div>
+                                </div>
+                              </div>  
+                            {% endif %}
+                           {% if template.name != 'cart' and template.name != '404' %}
+                            <div class="thumbnail-buttons">
+                              {%- if settings.show_quickview -%}
+                              <div class="quickview-btn product-btn">
+                                <quickview-opener class="product-popup-modal__opener no-js-hidden btn-info quick-view" data-handle="{{ product_card_product.handle }}" data-modal="#qvPopupModal">
+                                  <div class="product-popup-modal__button link" type="button" aria-haspopup="dialog" data-href="#qvPopupModal" data-toggle="popover" aria-expanded="false">
+                                    {% render 'icons' with 'quickview' %}
+                                  </div>
+                                </quickview-opener>
+                              </div>
+                              {%- endif -%}
+                              {%- if settings.show_wishlist -%}
+                              <div class="wishlist-btn product-btn">
+                                <div class="btn-info wishlist">
+                                  <div class="add-to-wishlist">     
+                                    <div class="show">
+                                      <div class="default-wishbutton-{{ product_card_product.handle }} loading"><a class="add-in-wishlist-js" data-href="{{ product_card_product.handle | handleize }}">{% render 'icons' with 'wishlist-outline' %}<span class="tooltip-label">{{ 'products.wishlist.add_to_wishlist' | t }}</span></a></div>
+                                      <div class="loadding-wishbutton-{{ product_card_product.handle }} loading loader-btn" style="display: none; pointer-events: none"><a class="add_to_wishlist" data-href="{{ product_card_product.handle | handleize }}"><i class="fa fa-circle-o-notch fa-spin"></i></a></div>
+                                      <div class="added-wishbutton-{{ product_card_product.handle }} loading" style="display: none;"><a class="added-wishlist add_to_wishlist" href="/pages/wishlist">{% render 'icons' with 'wishlist' %}<span class="tooltip-label">{{ 'products.wishlist.view_wishlist' | t }}</span></a></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {%- endif -%}
+                              {%- if settings.show_cart -%}
+                              <div class="addtocart-btn product-btn">
+                                <div class="cart-btn {% if product_card_product.available == false %} btn-info sold-out {%- else -%} btn-info add-to-cart-js {%- endif -%}" data-variantid="{{ product_card_product.selected_or_first_available_variant.id }}">
+                                  {% render 'icons' with 'addtocart' %}
+                                </div>
+                              </div>
+                              {%- endif -%}
+                            </div>
+                            {% endif %}
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            {% endif %}
+            {% assign i = i | plus: 1 %}
+          {% endfor %}
+        </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+<script type="text/javascript">  
+  
+  jQuery(document).ready(function() {
+    
+      {% assign i = 1 %}
+      {% for block in section.blocks %}
+        $('.specialdealcarousel-{{section.id}} .productdeal').each(function() {
+           setCountDownTimer($(this).data("dealcounter"), this.querySelector(".countdowncontainer"));
+        });
+      {% assign i = i | plus: 1 %}
+      {% endfor %}
+ 
+   
+  });
+</script>
+
+
+
+<style type="text/css">
+  #shopify-section-{{ section.id }}{
+    margin-bottom: {{ section.settings.section_bottom_spacing_desktop }}px;
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.section_bottom_spacing_mobile }}px;
+    }
+  }
+</style>
+
+{% schema %}
+
+  {
+    "name": "Ishi Deal Block",
+    "tag": "section",
+    "class": "ishi-deal-block",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title1",
+        "label": "Main Title",
+        "default": "BEST DEAL"
+      },
+      {
+        "type": "text",
+        "id": "show_description",
+        "label": "Length of Characters for Short Product Description.",
+        "default": "100"
+      },
+      {
+        "type": "header",
+        "content": "Section Bottom Spacing"
+      },
+      {
+        "type": "range",
+        "id": "section_bottom_spacing_desktop",
+        "label": "Desktop",
+        "min": 0,
+        "max": 70,
+        "step": 10,
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "section_bottom_spacing_mobile",
+        "label": "Mobile",
+        "min": 0,
+        "max": 50,
+        "step": 10,
+        "default": 30
+      }
+    ],
+    "blocks": [
+      {
+        "type": "logo_image",
+        "name": "Product",
+        "settings": [
+          {
+          "id": "product",
+          "type": "product",
+          "label": "Select Your Product"
+          },
+          {
+            "type": "text",
+            "id": "startdate",
+            "label": "Start Date",
+            "info": "YYYY-MM-DD"
+          },
+          {
+            "type": "text",
+            "id": "enddate",
+            "label": "End Date",
+            "info": "YYYY-MM-DD"
+          }
+        ]
+      } 
+    ],
+    "presets": [
+      {
+        "name": "Ishi Deal Block"
+      }
+    ]
+  }
+{% endschema %}
+

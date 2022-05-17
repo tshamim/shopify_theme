@@ -1,0 +1,218 @@
+<div class="ishibannerwithtext {% if section.settings.banner_layout == 'box' %}page-width{% endif %}">
+     {% if section.blocks.size > 0 %}
+        <div class="ishibannerwithtext_grid">
+          {% for block in section.blocks %}
+          <div class="ishibannerwithtext-container col-md-6 col-sm-6 col-xs-12">
+            <div class="image-container">
+              {% if block.settings.image != blank %}
+              <div class="media" style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;">
+                 {% endif %}
+              <a class="ishi-customhover-{{ block.settings.bannerhover }} {% if block.settings.banner_scale_enable %}scale{% endif %}" 
+                 {% if block.settings.banner_link != blank %}href="{{ block.settings.banner_link }}"{% else %}role="link" aria-disabled="true"{% endif %}>
+               {% if block.settings.image != blank %}
+                <img class="lazyload"
+                 data-src="{{ block.settings.image | img_url: 'master' }}"
+                 alt="Banner Image">
+                 {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'ishi-placeholder' }}
+                {% endif %}
+                  {% if block.settings.banneroffer != blank or block.settings.main-bannertitle != blank or block.settings.banner_link != blank %}
+                    <div class="banner-data">
+                    {% if block.settings.banneroffer != blank %}
+                      <div class="banner-offer" style="color: {{ block.settings.textcolor1 }};">{{ block.settings.banneroffer | escape }}</div>
+                    {% endif %}
+                    {% if block.settings.bannertitle != blank %}
+                          <div class="banner-title" style="color: {{ block.settings.textcolor2 }};">{{ block.settings.bannertitle }}</div>
+                    {% endif %}
+                    {% if block.settings.button_label != blank and block.settings.banner_link != blank %}
+                      <div class="btn__small" style="color: {{ block.settings.textcolor3 }}; border-bottom:1px solid {{ block.settings.textcolor3 }};">
+                        {{ block.settings.button_label | escape }}
+                      </div>
+                    {% endif %}
+                    </div>
+                  {% endif %}
+               </a>
+                {% if block.settings.image != blank %}
+               </div>
+               {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<style type="text/css">
+  #shopify-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.section_bottom_spacing_desktop }}px;
+  }
+  #shopify-section-{{ section.id }} .ishibannerwithtext-container {
+    padding: 0 {{ section.settings.banner_leftright_internal_padding | divided_by: 2 }}px;
+    margin-bottom: {{ section.settings.banner_leftright_internal_padding }}px;
+  }
+  #shopify-section-{{ section.id }} .ishibannerwithtext_grid{
+    margin: 0 -{{ section.settings.banner_leftright_internal_padding | divided_by: 2 }}px;
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.section_bottom_spacing_mobile }}px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Banner With Text Block",
+    "tag": "section",
+    "class": "banner-with-text-section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Banner Settings"
+      },
+      {
+        "type": "select",
+        "id": "banner_layout",
+        "label": "Layout",
+        "default": "full",
+        "options": [
+          { "value": "box", "label": "Box"},
+          { "value": "full", "label": "Full"}
+        ]
+      },
+      {
+        "type": "range",
+        "id": "banner_leftright_internal_padding",
+        "label": "Banner Left & Right Internal Spacing/Padding",
+        "min": 0,
+        "max": 30,
+        "step": 5,
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Section Bottom Spacing"
+      },
+      {
+        "type": "range", 
+        "id": "section_bottom_spacing_desktop",
+        "label": "Desktop",
+        "min": 0,
+        "max": 70,
+        "step": 10,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "section_bottom_spacing_mobile",
+        "label": "Mobile",
+        "min": 0, 
+        "max": 50,
+        "step": 10, 
+        "default": 0
+      }
+    ],
+    "blocks": [ 
+      { 
+        "type": "image",
+        "name": "Banner",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Size: 960px X 600px"
+          },
+          {
+            "type": "checkbox",
+            "id": "banner_scale_enable",
+            "label": "Scale Banner",
+            "default": false
+          },
+          {
+            "type": "select",
+            "id": "bannerhover",
+            "label": "Hover",
+			"default": "fadeinrotate3D",
+            "options": [
+              { "value": "fadeinnormal", "label": "FadeIn Normal"},
+              { "value": "fadeinflip", "label": "FadeIn Flip"},
+              { "value": "fadeinrotate", "label": "FadeIn Rotate"},
+              { "value": "fadeinrotate3D", "label": "FadeIn Rotate3D"},
+              { "value": "fadeintop", "label": "FadeIn Top"},
+              { "value": "fadeinbottom", "label": "FadeIn Bottom"},
+              { "value": "fadeintopbottom", "label": "FadeIn Top Bottom"},
+              { "value": "fadeoutcenter", "label": "FadeOut Center"},
+              { "value": "fadeinoutbordercorner", "label": "FadeInOut BorderCorner"},
+              { "value": "doublefadeincenter", "label": "Double FadeInOut Center"},
+              { "value": "fadeinoutsingle", "label": "FadeInOut Single Scroll"},
+              { "value": "fadeinoutdoublevertical", "label": "FadeInOut Double Scroll"},
+              { "value": "perspective", "label": "Perspective"},
+              { "value": "fadeinoutrotatevertical", "label": "FadeInOut Rotate Vertical"}
+            ]
+          },
+          {
+            "type": "text",
+            "id": "banneroffer",
+            "label": "Offer Title",
+            "default": "60% Off"
+          },
+          {
+            "type": "text",
+            "id": "bannertitle",
+            "label": "Banner Title",
+			"default": "Banner <br>Title"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "SHOP NOW"
+          },
+          {
+            "type": "url",
+            "id": "banner_link",
+            "label": "Link"
+          },
+          {
+            "type": "header",
+            "content": "Color Settings"
+          },
+          {
+            "type": "color",
+            "id": "textcolor1",
+            "label": "Text Color1",
+            "default": "#222222"
+          },
+          {
+            "type": "color",
+            "id": "textcolor2",
+            "label": "Text Color2",
+            "default": "#222222"
+          },
+          {
+            "type": "color",
+            "id": "textcolor3",
+            "label": "Text Color3",
+            "default": "#222222"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner With Text Block",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+   

@@ -1,0 +1,224 @@
+<div class="ishistoryblock{% if section.settings.storyimage %} story-image lazyload{% elsif section.settings.storycolor %} story-color{% endif %} {% if section.settings.fixed %}fixed{% endif %}" {% if section.settings.storyimage %}data-bg="{{ section.settings.storyimage | img_url: 'master' }}"{% endif %}>
+  <div class="page-width">
+    <div class="text-wrapper banner-text-{{section.settings.text_position}} col-xl-6 col-lg-7 col-md-8 col-sm-12 col-xs-12">
+      <div class="story-text-block">
+        {% if section.settings.storysubtitle != blank %}
+        <div class="subtitle">{{ section.settings.storysubtitle | escape }}</div>
+        {% endif %}
+        {% if section.settings.storytitle != blank %}
+        <div class="title">{{ section.settings.storytitle | escape }}</div>
+        {% endif %}
+        {% if section.settings.text != blank %}
+        <div class="description">{{ section.settings.text }}</div>
+        {% endif %}
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn story-btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css"> 
+  #shopify-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.section_bottom_spacing_desktop }}px;
+  }
+  #shopify-section-{{ section.id }} .story-color{
+  	background-color: {{ section.settings.storycolor }};
+  }
+  #shopify-section-{{ section.id }} .ishistoryblock{
+  	padding: {{ section.settings.story_padding }}px 0;
+  }
+  #shopify-section-{{ section.id }} .banner-text-right{
+    float: right;
+  }
+  #shopify-section-{{ section.id }} .banner-text-left{
+    float: left;
+  }
+  #shopify-section-{{ section.id }}  .banner-text-center{
+    margin: 0 auto;
+    float:none;
+  }
+  #shopify-section-{{ section.id }} .ishistoryblock .text-wrapper{
+    background:  {{ section.settings.storytext_bgcolor | color_modify: 'alpha', section.settings.storytext_bgcoloropacity }};
+    text-align:{{ section.settings.storytextalignment }};
+  }
+  #shopify-section-{{ section.id }} .story-text-block .subtitle{
+    color: {{ section.settings.storycolor1 }};
+  }
+  #shopify-section-{{ section.id }} .story-text-block .title{
+    color: {{ section.settings.storycolor2 }};
+  }
+  #shopify-section-{{ section.id }} .story-text-block .description,
+  #shopify-section-{{ section.id }} .story-text-block .description p{
+    color: {{ section.settings.storycolor3 }};
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.section_bottom_spacing_mobile }}px;
+    }
+    #shopify-section-{{ section.id }} .ishistoryblock{
+      padding: {{ section.settings.story_padding | divided_by: 2 }}px 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Story Block Style 3",
+  "tag": "section",
+  "class": "story-block-style3",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "storyimage",
+        "label": "Background Image",
+        "info": "Size: 1920px X 850px"
+      },
+      {
+        "type": "color",
+        "id": "storycolor",
+        "label": "Background Color",
+        "default": "#f5f5f5"
+      },
+      {
+        "type": "checkbox",
+        "id": "fixed",
+        "label": "Background Attachment Fixed ?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Section Top-Bottom Internal Spacing"
+      },
+      {
+        "type": "range",
+        "id": "story_padding",
+        "min": 0,
+        "max": 200,
+        "step": 20,
+        "label": "Internal Box Space/Padding",
+        "default": 140
+      },
+      {
+        "type": "header",
+        "content": "Story Block Setting"
+      },
+      {
+        "type": "select",
+        "id": "text_position",
+        "label": "Text Position",
+        "default": "left",
+        "options": [
+          { "value": "left", "label": "Left"},
+          { "value": "center", "label": "Center"},
+          { "value": "right", "label": "Right"}
+        ]
+      },
+       {
+        "type": "select",
+        "id": "storytextalignment",
+        "label": "Text Alignment",
+        "default": "center",
+        "options": [
+          { "value": "left", "label": "Left"},
+          { "value": "center", "label": "Center"},
+          { "value": "right", "label": "Right"}
+        ]
+      },
+      {
+        "type": "color",
+        "id": "storytext_bgcolor",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+	  {
+        "type": "range",
+        "id": "storytext_bgcoloropacity",
+        "label": "Background Opacity",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "default": 0.9
+      },
+      {
+        "type": "color",
+        "id": "storycolor1",
+        "label": "Text Color1",
+        "default": "#6E6C3C"
+      },
+      {
+        "type": "color",
+        "id": "storycolor2",
+        "label": "Text Color2",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "storycolor3",
+        "label": "Text Color3",
+        "default": "#888888"
+      },
+      {
+        "type": "text",
+        "id": "storysubtitle",
+        "label": "Sub Title",
+        "default": "ALL ABOUT US"
+      },
+      {
+        "type": "text",
+        "id": "storytitle",
+        "label": "Title",
+        "default": "Summer Fashion"
+      },
+      {
+        "type": "html",
+        "id": "text",
+        "label": "HTML Text",
+        "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "VIEW MORE"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Section Bottom Spacing"
+      },
+      {
+        "type": "range",
+        "id": "section_bottom_spacing_desktop",
+        "label": "Desktop",
+        "min": 0,
+        "max": 70,
+        "step": 10,
+        "default": 70
+      },
+      {
+        "type": "range",
+        "id": "section_bottom_spacing_mobile",
+        "label": "Mobile",
+        "min": 0,
+        "max": 50,
+        "step": 10,
+        "default": 30
+      }
+  ],
+  "presets": [
+    {
+      "name": "Story Block Style 3"
+    }
+  ]
+}
+
+
+{% endschema %}

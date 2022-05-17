@@ -1,0 +1,227 @@
+<div id="header" data-section-id="{{ section.id }}" data-section-type="header-section">
+  <header class="site-header">
+   
+      {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
+      {% if localization.available_countries.size > 1 or localization.available_languages.size > 1 %}
+      <div class="language-currency hidden-lg-down">
+        {%- render 'language-currency' -%}
+      </div>
+      {% endif %}
+      {% endif %}
+    <div class="header-top-height hidden-lg-down"> 
+    <div class="header-top hidden-lg-down">
+      <div class="page-width">
+        <div class="row">
+          <div id="_desktop_logo" class="header-logo-section col-lg-4 col-md-12 col-sm-12">
+            {% comment %}
+            Use the uploaded logo from theme settings if enabled.
+            Site name gets precedence with H1 tag on homepage, div on other pages.
+            {% endcomment %}
+            {% if template.name == 'index' %}
+            <h1 class="h2 header__logo" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+              <div class="h2 header__logo" itemscope itemtype="http://schema.org/Organization">
+                {% endif %}
+                {% if section.settings.logo %}
+                <a href="/" itemprop="url" class="header__logo-image">
+                  {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}  
+                  {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}             
+                  <img 
+                       src="{{ section.settings.logo | img_url: 'large' }}"
+                       alt="{{ logo_alt | escape }}"
+                       itemprop="logo" style="max-width: 100%;width: {{ section.settings.logo_max_width }}px;">
+                </a>
+                {% else %}
+                <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                {% endif %}
+                {% if template.name == 'index' %}
+                </h1>
+              {% else %}
+              </div>
+            {% endif %}
+          </div>
+ 			<div class="header-center col-lg-4 col-md-12 col-sm-12 hidden-lg-down">
+               {% if section.settings.show_email %}
+                <div id="ishiemailblock" class="hidden-lg-down">
+                    <div class="email">
+                        <div class="email-title">{{ section.settings.email-title }}</div>
+                        <a href="mailto:{{shop.email}}" class="email-num">{{shop.email}}</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+          <div class="hidden-lg-down header-right col-lg-4 col-md-12 col-sm-12">
+            <div id="_desktop_search" class="site-header__search hidden-lg-down">
+              {% include 'search-form' %}
+            </div>
+            {% if shop.customer_accounts_enabled %}
+            <div id="_desktop_user_info" class="user_info">
+               {% if customer %}
+                    <a class="userinfo-title clearfix" href="/account">
+                      {% else %}
+                      <div class="userinfo-title clearfix" data-toggle="popover" aria-expanded="false" data-href="#user-notification" >
+                        {% endif %}
+              <span class="userinfo-toggle hidden-lg-down">{% include 'icons' with 'user-desktop' %}</span>
+                <span class="userinfo-toggle hidden-lg-up">{% include 'icons' with 'user-mobile' %}</span>
+                        {% if customer %}
+               </a>
+                {% else %}
+                </div>
+              {% endif %}
+              
+              <div id="user-notification" class="toggle-dropdown">
+              {%- render 'user-notification' -%}
+              </div>
+            </div>
+            {% endif %}
+            <div id="_desktop_cart" class="cart_info">
+              {% if template != "cart" and template != "404" %}
+               <div class="cart-display" id="cart-icon-bubble" data-href="#cart-notification" data-toggle="popover" aria-expanded="false" href="javascript:void(0);"> 
+                 {% else %}
+                   <a class="cart-display" id="cart-icon-bubble" data-href="#cart-notification" href="/cart">
+                {% endif %}
+                <span class="cart-logo">
+                  <span class="hidden-lg-down">
+                    {% include 'icons' with 'shopping-cart-desktop' %}
+                  </span>
+                  <span class="hidden-lg-up">
+                    {% include 'icons' with 'shopping-cart-mobile' %}
+                  </span>
+                </span>
+                {%- if cart != empty -%}
+                <div class="cart-count-bubble">
+                  {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+                {%- endif -%}
+                {% if template != "cart" and template != "404" %}
+                  </div> 
+                {% else %}
+                  </a>
+              {% endif %}
+              {%- render 'cart-notification' -%}
+            </div>
+          </div>
+      </div> 
+      </div> 
+    </div>
+     </div> 
+    <div id="mobile_top_menu_wrapper" class="hidden-lg-up" style="display:none;">
+      <div id="top_menu_closer" class="hidden-lg-up">
+        {% include 'icons' with 'close' %}
+      </div>
+      <div  id="_mobile_top_menu" class="js-top-menu mobile"></div>
+      <div id= "_mobile_localization" class="header__localization"></div>
+    </div>
+    <div class="mobile-menu-overlay hidden-lg-up"></div>
+    <div class="mobile-navmenu hidden-lg-up">
+      <div class="mobile-width">
+        <div class="page-width">
+          <div class="row">
+            <div class="mobile-width-left">
+              <div id="menu-icon" class="menu-icon hidden-lg-up">
+                {% include 'icons' with 'setup' %}
+              </div>
+              <div id= "_mobile_search"></div>
+            </div>
+            <div id="_mobile_logo" class="header-logo-section"></div>
+            <div class="mobile-width-right">
+             <div id= "_mobile_user_info"></div>
+              <div id= "_mobile_cart" class="cart_info"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width | append: 'x' %}
+      "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+    {% endif %}
+    "url": {{ shop.url | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ shop.url | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Header Layout3",
+  "class": "header-layout3",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Theme Logo Image",
+      "info": "Size: 120px X 25px"
+    },
+    {
+      "type": "text",
+      "id": "logo_max_width",
+      "label": "Max Logo Width",
+      "default": "120",
+      "info": "Defined in pixels. Do not add the 'px' unit."
+    },
+    {
+      "type": "text",
+      "id": "email-title",
+      "label": "Email Title",
+      "default": "Email : "
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email",
+      "label": "Show Email ID",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Currency selector",
+      "info": "To add a currency, go to your [payment settings.](\/admin\/settings\/payments)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "Enable Currency selector"
+    },
+    {
+      "type": "header",
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](\/admin\/settings\/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": false,
+      "label": "Enable language selector"
+    }
+    
+  ]
+  
+}
+{% endschema %}

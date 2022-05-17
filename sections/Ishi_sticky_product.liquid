@@ -1,0 +1,151 @@
+{%- assign product = all_products[section.settings.product] -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign media = product.featured_media -%}
+
+{% if section.settings.enable %}
+<div class="sticky-inner">
+  <div class="ishi-sticky-product-section">
+    <div class="page-width">
+      <div class="ishi_sticky-product">
+        <div class="ishi_sticky-left">
+          <div class="ishi-sticky-product-main-img">
+            {% if product != empty %}
+              <img
+                   class="lazyload"
+                   data-src="{{ media | img_url: 'master' }}"
+                   loading="lazy"
+                   alt="{{ media.alt | escape }}"
+                   >
+            {% else %}
+            	{{ 'product-1' | placeholder_svg_tag: 'ishi-placeholder' }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="ishi_sticky-right">
+          {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          <div class="title-price">
+            <h3 class="h1 product-single__title">
+              <a href="{{product.url}}">
+                {% if product != empty %}
+                  {{ product.title | escape }}
+                {% else %}
+            	  {{ 'onboarding.product_title' | t }}
+            	{% endif %}
+              </a>
+            </h3>
+            <div class="ishi-sticky-product-price">
+              {% if product != empty %}
+                <span class="sticky-product-compareatprice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                <span class="sticky-product-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+              {% else %}
+              	{% render 'price' %}
+              {% endif %}
+            </div>
+          </div>
+          {% if product != empty %}
+            {%- assign form_classes = 'product-form-' | append: section.id -%}
+            {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+          	  <div class="sticky-product-variant">
+                {% unless product.has_only_default_variant %}
+                  {% for option in product.options_with_values %}
+                    <div class="selector-wrapper js product-form__item">
+                      {% if section.settings.show_variant_labels %}
+                        <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}">
+                          {{ option.name }}
+                        </label>
+                      {% endif %}
+                      <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input select__select" id="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
+                        {% for value in option.values %}
+                        <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  {% endfor %}
+                {% endunless %}
+                <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants">
+                  {% for variant in product.variants %}
+                  <option value="{{ variant.id }}"
+                          {%- if variant == current_variant %} selected="selected" {%- endif -%}
+                          data-variant-id="{{ variant.id }}"
+                          data-img="{{ variant.image | img_url: 'master' }}"
+                          data-price="{{ variant.price | money }}"
+                          {% if variant.compare_at_price %}data-discount-price="{{ variant.compare_at_price | money }}"{% endif %}
+                          data-available="{% if variant.available == false %}false{% else %}true{% endif %}"
+                          >{{ variant.title }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+          	  {% if section.settings.show_quantity_selector %}
+                <div class="product-form__quantity selector-wrapper">
+                   {% if section.settings.show_variant_labels %}
+                  <label class="form__label" for="Quantity-{{ section.id }}">
+                    {{ 'products.product.quantity.label' | t }}
+                  </label>
+                  {% endif %}
+                  <quantity-input class="quantity">
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                      <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                      {% include 'icons' with 'minus' %}
+                    </button>
+                    <input class="quantity__input"
+                           type="number"
+                           name="quantity"
+                           id="Quantity-{{ section.id }}"
+                           min="1"
+                           value="1"
+                           form="product-form-{{ section.id }}"
+                           >
+                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                      <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                      {% include 'icons' with 'plus' %}
+                    </button>
+                  </quantity-input>
+                </div>
+          	  {% endif %}
+              <div class="product-sticky-btn selector-wrapper cart-btn {% if product.available == false %} btn sold-out {%- else -%} btn add-to-cart-sticky {%- endif -%}" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>
+                <input class="sticky-variantid" type="hidden" value="{{ product.selected_or_first_available_variant.id }}">
+                <span class="value-cart">{{ 'products.product.add_to_cart' | t }}</span>
+                <span class="value-soldout">{{ 'products.product.sold_out' | t }}</span>
+              </div>
+            {% endform %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Ishi Sticky Product",
+  "tag": "section",
+  "class": "sticky-product-section",
+  "settings": [
+	{
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enabled?",
+      "default": true
+    },
+    {
+      "id": "product",
+      "type": "product",
+      "label": "Select Your Product"
+    },
+	{
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show Quantity Selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant_labels",
+      "label": "Show Variant Labels",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
