@@ -3,7 +3,7 @@
     "storelayout": "full-layout",
     "mainbgimage": "shopify:\/\/shop_images\/Untitled-1_18f034fd-7d94-4823-8a92-eb97c9489307.png",
     "mainbgcolor": "#ffffff",
-    "header-layout": "header_layout2",
+    "header-layout": "header_layout3",
     "password_bgimage": "shopify:\/\/shop_images\/mainbackground_57c32a9f-b209-46d6-88bf-428f90dcc7e5.png",
     "password_bgcolor": "#151515",
     "password_textcolor": "#FFFFFF",
@@ -210,7 +210,7 @@
       "newsletterpopup": {
         "type": "newsletterpopup",
         "settings": {
-          "enable": true,
+          "enable": false,
           "show_onall_page": false,
           "newsletter_time": 4,
           "bgcolor": "#ffffff",
