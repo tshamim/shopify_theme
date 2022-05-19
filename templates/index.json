@@ -368,7 +368,7 @@
         "208c79fc-e88a-4771-a210-d76bd4acd2c6": {
           "type": "logo_image",
           "settings": {
-            "product": "aloha-shirt-for-men",
+            "product": "chain-bracelet",
             "startdate": "2021-11-12",
             "enddate": "2022-09-18"
           }
@@ -376,7 +376,7 @@
         "9624400a-ce54-49a1-9e6f-f4cbe36fb1bb": {
           "type": "logo_image",
           "settings": {
-            "product": "epaulette-shirt",
+            "product": "leather-anchor",
             "startdate": "2021-11-12",
             "enddate": "2022-08-12"
           }
@@ -384,7 +384,7 @@
         "11dfd3ec-71d2-4b9d-92c8-268800c2eb62": {
           "type": "logo_image",
           "settings": {
-            "product": "aloha-shirt-for-men",
+            "product": "choker-with-bead",
             "startdate": "2021-06-21",
             "enddate": "2022-09-18"
           }
@@ -392,17 +392,9 @@
         "a33aed84-9316-49d8-9b82-40414f024a09": {
           "type": "logo_image",
           "settings": {
-            "product": "formal-gray-shirt",
+            "product": "choker-with-triangle",
             "startdate": "2021-10-20",
             "enddate": "2022-08-12"
-          }
-        },
-        "4d56a9b6-abd8-4c8b-bf14-9457a7eb7c2f": {
-          "type": "logo_image",
-          "settings": {
-            "product": "epaulette-shirt",
-            "startdate": "2021-10-22",
-            "enddate": "2022-07-12"
           }
         }
       },
@@ -410,8 +402,7 @@
         "208c79fc-e88a-4771-a210-d76bd4acd2c6",
         "9624400a-ce54-49a1-9e6f-f4cbe36fb1bb",
         "11dfd3ec-71d2-4b9d-92c8-268800c2eb62",
-        "a33aed84-9316-49d8-9b82-40414f024a09",
-        "4d56a9b6-abd8-4c8b-bf14-9457a7eb7c2f"
+        "a33aed84-9316-49d8-9b82-40414f024a09"
       ],
       "settings": {
         "title1": "BEST DEAL",
