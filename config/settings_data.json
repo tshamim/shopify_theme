@@ -282,8 +282,31 @@
               "bannerlink2": "\/"
             }
           },
+          "3a1fafba-ad47-413b-90b9-dcfcda845db4": {
+            "type": "text_block",
+            "settings": {
+              "title": "Products",
+              "button_link": "shopify:\/\/collections\/all",
+              "blog_show_new": false,
+              "blog_show_sale": false,
+              "blog_show_hot": false,
+              "navbar": "",
+              "button_link1": "",
+              "navbar1": "",
+              "button_link2": "",
+              "navbar2": "",
+              "button_link3": "",
+              "blog_show_collection": false,
+              "collection-title": "",
+              "button_link5": "",
+              "product": "",
+              "bannerlink1": "",
+              "bannerlink2": ""
+            }
+          },
           "5b8b8448-f8db-4647-95e9-76a0840325d8": {
             "type": "text_block",
+            "disabled": true,
             "settings": {
               "title": "Included Pages",
               "button_link": "",
@@ -347,14 +370,38 @@
               "bannerlink1": "",
               "bannerlink2": ""
             }
+          },
+          "cc20a1ac-2bf1-4bfa-a68d-205755bb8998": {
+            "type": "text_block",
+            "settings": {
+              "title": "Home",
+              "button_link": "shopify:\/\/collections\/frontpage",
+              "blog_show_new": false,
+              "blog_show_sale": false,
+              "blog_show_hot": false,
+              "navbar": "",
+              "button_link1": "",
+              "navbar1": "",
+              "button_link2": "",
+              "navbar2": "",
+              "button_link3": "",
+              "blog_show_collection": false,
+              "collection-title": "",
+              "button_link5": "",
+              "product": "",
+              "bannerlink1": "",
+              "bannerlink2": ""
+            }
           }
         },
         "block_order": [
           "463f4e47-8c00-43bb-9469-7adbdc13e8f4",
           "39cafe9d-c0f3-402e-a430-ac51ff9b6ce2",
+          "3a1fafba-ad47-413b-90b9-dcfcda845db4",
           "5b8b8448-f8db-4647-95e9-76a0840325d8",
           "2106e5ea-a7c6-4464-8c4e-d98a0fd401f1",
-          "eeff56ba-bf20-4a16-b302-3aa2195fe206"
+          "eeff56ba-bf20-4a16-b302-3aa2195fe206",
+          "cc20a1ac-2bf1-4bfa-a68d-205755bb8998"
         ],
         "settings": {
           "transparent-header": false,
