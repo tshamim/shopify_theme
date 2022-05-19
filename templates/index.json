@@ -51,6 +51,7 @@
         "163170057031e3852d-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/rose-gold-wedding-ring-with-large-stone.jpg",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/men"
