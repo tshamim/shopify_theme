@@ -6,6 +6,7 @@
         "16289212707c98911d-0": {
           "type": "slide_image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg",
             "text_position": "left",
             "textalignment": "left",
             "subtitle": "<em>Spring<\/em>",
@@ -21,6 +22,7 @@
         "16289212707c98911d-1": {
           "type": "slide_image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/sliced-pumpkin-pie.jpg",
             "text_position": "right",
             "textalignment": "left",
             "subtitle": "<em>Stylish<\/em>",
