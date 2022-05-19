@@ -210,7 +210,7 @@
       "newsletterpopup": {
         "type": "newsletterpopup",
         "settings": {
-          "enable": true,
+          "enable": false,
           "show_onall_page": false,
           "newsletter_time": 4,
           "bgcolor": "#ffffff",

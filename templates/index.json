@@ -6,7 +6,6 @@
         "16289212707c98911d-0": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/slider1_d595ac44-6465-4943-90f1-c0627fed2c0b.png",
             "text_position": "left",
             "textalignment": "left",
             "subtitle": "<em>Spring<\/em>",
@@ -22,7 +21,6 @@
         "16289212707c98911d-1": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/slider2_48cbb38e-8237-41e9-bf1e-1cc941454b7b.png",
             "text_position": "right",
             "textalignment": "left",
             "subtitle": "<em>Stylish<\/em>",
@@ -51,7 +49,6 @@
         "163170057031e3852d-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled-5.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/men"
@@ -60,7 +57,6 @@
         "163170057031e3852d-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled-6.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/women"
@@ -69,7 +65,6 @@
         "b4e484a4-0776-4589-a342-446317bea449": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled-7.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/men"
@@ -144,7 +139,7 @@
         "97252d4e-7c14-416c-badd-ce0b74172024": {
           "type": "text",
           "settings": {
-            "category-title": "UP TO 70% OFF THE ENTIRE STORE ! ",
+            "category-title": "UP TO 70% OFF THE ENTIRE STORE !",
             "button_link": "shopify:\/\/collections\/fashion"
           }
         },
@@ -217,7 +212,6 @@
     "1632566819b4ce5b48": {
       "type": "Ishi_storyblockstyle3",
       "settings": {
-        "storyimage": "shopify:\/\/shop_images\/parallaxnbackground.png",
         "storycolor": "#ffffff",
         "fixed": true,
         "story_padding": 140,
@@ -243,7 +237,6 @@
         "1632566845cc1b3bc8-0": {
           "type": "image",
           "settings": {
-            "service-image": "shopify:\/\/shop_images\/serviceicon1_e39334d9-b6c8-4130-894f-d0e3eb4c76eb.png",
             "service-title": "27 X 7 SUPPORT",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/men"
@@ -252,7 +245,6 @@
         "1632566845cc1b3bc8-1": {
           "type": "image",
           "settings": {
-            "service-image": "shopify:\/\/shop_images\/serviceicon2_5c95fc6d-5b21-4164-a47a-e1cabcb25cf1.png",
             "service-title": "MONEY BACK",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/new-fashion"
@@ -261,7 +253,6 @@
         "1632566845cc1b3bc8-2": {
           "type": "image",
           "settings": {
-            "service-image": "shopify:\/\/shop_images\/serviceicon3_93e5c3ad-48e8-4772-87c3-efef0a1f4e91.png",
             "service-title": "GIFT VOUCHER",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/fashion"
@@ -322,42 +313,36 @@
         "16321109031b551c03-0": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b6.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-1": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b5.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-2": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b4.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-3": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b3.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-4": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b2.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-5": {
           "type": "logo_image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/b1.png",
             "link2": "\/"
           }
         }
@@ -436,7 +421,6 @@
     "163211690751cae298": {
       "type": "Ishi_newsletterblock",
       "settings": {
-        "newsletterimage": "shopify:\/\/shop_images\/newsletterbackground_9eff3a58-f65a-4e27-a57e-5380ec775772.png",
         "newslettercolor": "#000000",
         "newslettertextcolor": "#ffffff",
         "newsletter_padding": 80,
@@ -462,24 +446,6 @@
         "section_bottom_spacing_desktop": 70,
         "section_bottom_spacing_mobile": 30
       }
-    },
-    "16325669430cece0bc": {
-      "type": "Ishi_instagramblock",
-      "settings": {
-        "main-title": "FOLLOW US",
-        "insta_layout": "full",
-        "accestoken": "IGQVJYVWNlakNjcUJSMGxEX2hicmdCU29QZAzZAWSjFpdlNOX2xJdzZAsWWtUNi1ETkdtQ1hJS3hVUm5qSE9ScTZAIQ3BtanVnam1BSXM0cWVzN2NOYkQ3Y2cxRXBNS1BTdFM0aFNVUW5aSzlPYTl3amh2RQZDZD",
-        "username": "Instagram",
-        "greyscale": false,
-        "space": 0,
-        "rowproduct_limit_Small": 2,
-        "rowproduct_limit_Mobile": 3,
-        "rowproduct_limit_Tablet": 4,
-        "rowproduct_limit_Laptop": 5,
-        "rowproduct_limit_Desktop": 6,
-        "section_bottom_spacing_desktop": 0,
-        "section_bottom_spacing_mobile": 0
-      }
     }
   },
   "order": [
@@ -494,7 +460,6 @@
     "16321109031b551c03",
     "163256690178f6693c",
     "163211690751cae298",
-    "1632566905bb7386bd",
-    "16325669430cece0bc"
+    "1632566905bb7386bd"
   ]
 }
