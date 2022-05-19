@@ -687,7 +687,7 @@
       "Ishi_sticky_product": {
         "type": "Ishi_sticky_product",
         "settings": {
-          "enable": true,
+          "enable": false,
           "product": "epaulette-shirt",
           "show_quantity_selector": true,
           "show_variant_labels": true
