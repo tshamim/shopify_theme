@@ -1,9 +1,9 @@
 {
   "current": {
-    "storelayout": "full-layout",
+    "storelayout": "box-layout",
     "mainbgimage": "shopify:\/\/shop_images\/Untitled-1_18f034fd-7d94-4823-8a92-eb97c9489307.png",
     "mainbgcolor": "#ffffff",
-    "header-layout": "header_layout3",
+    "header-layout": "header_layout1",
     "password_bgimage": "shopify:\/\/shop_images\/mainbackground_57c32a9f-b209-46d6-88bf-428f90dcc7e5.png",
     "password_bgcolor": "#151515",
     "password_textcolor": "#FFFFFF",
@@ -80,7 +80,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Your Account",
-              "menu": "",
+              "menu": "your-account",
               "block_width": 17
             }
           },
@@ -88,7 +88,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Our Company",
-              "menu": "",
+              "menu": "our-company",
               "block_width": 17
             }
           },
@@ -96,7 +96,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Products",
-              "menu": "",
+              "menu": "fashion-product",
               "block_width": 17
             }
           },
@@ -104,7 +104,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Extra",
-              "menu": "",
+              "menu": "extra",
               "block_width": 17
             }
           },
@@ -186,9 +186,8 @@
       "copyright_payment": {
         "type": "copyright_payment",
         "settings": {
-          "copyright": "© 2022, Aveda Sectioned Shopify Theme",
-          "payment_enable": true,
-          "fakepayment_enable": true
+          "copyright": "© 2022, theme customized by shamim ahammed",
+          "payment_enable": true
         }
       },
       "main-password-header": {
@@ -210,9 +209,10 @@
       "newsletterpopup": {
         "type": "newsletterpopup",
         "settings": {
-          "enable": false,
+          "enable": true,
           "show_onall_page": false,
           "newsletter_time": 4,
+          "image": "shopify:\/\/shop_images\/newsletterpopup_0df1edad-7e8d-4467-a73e-64047ee250ba.png",
           "bgcolor": "#ffffff",
           "textcolor": "#000000",
           "image_position": "cover",
@@ -246,17 +246,19 @@
               "blog_show_new": true,
               "blog_show_sale": false,
               "blog_show_hot": false,
-              "navbar": "",
+              "navbar": "men",
               "button_link1": "",
-              "navbar1": "",
+              "navbar1": "women",
               "button_link2": "shopify:\/\/collections\/woman",
-              "navbar2": "",
+              "navbar2": "kids",
               "button_link3": "shopify:\/\/collections\/kids",
               "blog_show_collection": true,
               "collection-title": "Special Product",
               "button_link5": "shopify:\/\/products\/brown-bear-cushion",
               "product": "night-shirt-girl",
+              "image1": "shopify:\/\/shop_images\/menunanner1.png",
               "bannerlink1": "shopify:\/\/collections\/fashion",
+              "image2": "shopify:\/\/shop_images\/menubanner3.png",
               "bannerlink2": "shopify:\/\/collections\/kids"
             }
           },
@@ -268,7 +270,7 @@
               "blog_show_new": false,
               "blog_show_sale": true,
               "blog_show_hot": false,
-              "navbar": "",
+              "navbar": "kids",
               "button_link1": "shopify:\/\/collections\/kids",
               "navbar1": "",
               "button_link2": "shopify:\/\/collections\/men",
@@ -278,6 +280,7 @@
               "collection-title": "Trending Product",
               "button_link5": "",
               "product": "lumberjack-shirt",
+              "image1": "shopify:\/\/shop_images\/menubanner2.png",
               "bannerlink1": "shopify:\/\/collections\/fashion-new",
               "bannerlink2": "\/"
             }
@@ -290,7 +293,7 @@
               "blog_show_new": false,
               "blog_show_sale": false,
               "blog_show_hot": false,
-              "navbar": "",
+              "navbar": "page",
               "button_link1": "",
               "navbar1": "",
               "button_link2": "",
@@ -359,6 +362,7 @@
         "settings": {
           "transparent-header": false,
           "headertitle": "",
+          "logo": "shopify:\/\/shop_images\/Logo.png",
           "logo_max_width": "120",
           "show_social": false,
           "show_checkout": false,
@@ -490,7 +494,7 @@
           "e1743019-a000-42f6-837f-e1436c507f11"
         ],
         "settings": {
-          "headertitle": "Welcome To Our Aveda Fashion Store !",
+          "headertitle": "Welcome To Our custom shopify Store !",
           "logo_max_width": "120",
           "email-title": "Email :",
           "show_email": true,
@@ -639,7 +643,7 @@
       "Ishi_sticky_product": {
         "type": "Ishi_sticky_product",
         "settings": {
-          "enable": false,
+          "enable": true,
           "product": "epaulette-shirt",
           "show_quantity_selector": true,
           "show_variant_labels": true

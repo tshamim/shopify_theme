@@ -6,8 +6,8 @@
         "16289212707c98911d-0": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/model-laughs-barefoot.jpg",
-            "text_position": "center",
+            "image": "shopify:\/\/shop_images\/slider1_d595ac44-6465-4943-90f1-c0627fed2c0b.png",
+            "text_position": "left",
             "textalignment": "left",
             "subtitle": "<em>Spring<\/em>",
             "subtitlecolor": "#232323",
@@ -22,7 +22,7 @@
         "16289212707c98911d-1": {
           "type": "slide_image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/sliced-pumpkin-pie.jpg",
+            "image": "shopify:\/\/shop_images\/slider2_48cbb38e-8237-41e9-bf1e-1cc941454b7b.png",
             "text_position": "right",
             "textalignment": "left",
             "subtitle": "<em>Stylish<\/em>",
@@ -51,6 +51,7 @@
         "163170057031e3852d-0": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-5.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/men"
@@ -59,6 +60,7 @@
         "163170057031e3852d-1": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-6.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/women"
@@ -67,6 +69,7 @@
         "b4e484a4-0776-4589-a342-446317bea449": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled-7.png",
             "banner_scale_enable": false,
             "bannerhover": "fadeinrotate3D",
             "banner_link": "shopify:\/\/collections\/men"
@@ -134,21 +137,21 @@
         "f5458227-ee4b-4f97-b7b7-1d8b300e24a8": {
           "type": "text",
           "settings": {
-            "category-title": "UP TO 80% OFF THE ENTIRE STORE ! MADE WITH FASHION BY AVEDA STORE !",
+            "category-title": "UP TO 80% OFF THE ENTIRE STORE  !",
             "button_link": "shopify:\/\/collections\/kids"
           }
         },
         "97252d4e-7c14-416c-badd-ce0b74172024": {
           "type": "text",
           "settings": {
-            "category-title": "UP TO 70% OFF THE ENTIRE STORE ! MADE WITH FASHION BY AVEDA STORE !",
+            "category-title": "UP TO 70% OFF THE ENTIRE STORE ! ",
             "button_link": "shopify:\/\/collections\/fashion"
           }
         },
         "fb1da144-ce0b-4da6-8bb5-1ad0395841f3": {
           "type": "text",
           "settings": {
-            "category-title": "UP TO 60% OFF THE ENTIRE STORE ! MADE WITH FASHION BY AVEDA STORE !",
+            "category-title": "UP TO 60% OFF THE ENTIRE STORE !",
             "button_link": "shopify:\/\/collections\/fashion"
           }
         }
@@ -214,6 +217,7 @@
     "1632566819b4ce5b48": {
       "type": "Ishi_storyblockstyle3",
       "settings": {
+        "storyimage": "shopify:\/\/shop_images\/parallaxnbackground.png",
         "storycolor": "#ffffff",
         "fixed": true,
         "story_padding": 140,
@@ -239,6 +243,7 @@
         "1632566845cc1b3bc8-0": {
           "type": "image",
           "settings": {
+            "service-image": "shopify:\/\/shop_images\/serviceicon1_e39334d9-b6c8-4130-894f-d0e3eb4c76eb.png",
             "service-title": "27 X 7 SUPPORT",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/men"
@@ -247,6 +252,7 @@
         "1632566845cc1b3bc8-1": {
           "type": "image",
           "settings": {
+            "service-image": "shopify:\/\/shop_images\/serviceicon2_5c95fc6d-5b21-4164-a47a-e1cabcb25cf1.png",
             "service-title": "MONEY BACK",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/new-fashion"
@@ -255,6 +261,7 @@
         "1632566845cc1b3bc8-2": {
           "type": "image",
           "settings": {
+            "service-image": "shopify:\/\/shop_images\/serviceicon3_93e5c3ad-48e8-4772-87c3-efef0a1f4e91.png",
             "service-title": "GIFT VOUCHER",
             "service-desc": "Lorem Ipsum dummy text",
             "link": "shopify:\/\/collections\/fashion"
@@ -315,36 +322,42 @@
         "16321109031b551c03-0": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b6.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-1": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b5.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-2": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b4.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-3": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b3.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-4": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b2.png",
             "link2": "\/"
           }
         },
         "16321109031b551c03-5": {
           "type": "logo_image",
           "settings": {
+            "image2": "shopify:\/\/shop_images\/b1.png",
             "link2": "\/"
           }
         }
@@ -423,11 +436,12 @@
     "163211690751cae298": {
       "type": "Ishi_newsletterblock",
       "settings": {
+        "newsletterimage": "shopify:\/\/shop_images\/newsletterbackground_9eff3a58-f65a-4e27-a57e-5380ec775772.png",
         "newslettercolor": "#000000",
         "newslettertextcolor": "#ffffff",
         "newsletter_padding": 80,
         "fixed": false,
-        "sub-heading": "CONNECT TO AVEDA & CO.",
+        "sub-heading": "CONNECT",
         "maintitle": "Join Our Newsletter",
         "title-desc": "<p>Hey you, sign up it only takes a second to be the first to find out about our latest news and promotions…<\/p>",
         "show_social": true,

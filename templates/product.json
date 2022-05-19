@@ -11,7 +11,6 @@
         },
         "review": {
           "type": "review",
-          "disabled": true,
           "settings": {
             "review_margin": 5
           }
@@ -70,12 +69,16 @@
         "reassurance": {
           "type": "reassurance",
           "settings": {
+            "reassurance-image1": "shopify:\/\/shop_images\/serviceicon1_5751f14d-5e26-48aa-b03b-f3f5d9817389.png",
             "reassurance-title1": "Free Delivery",
             "reassurance-desc1": "Lorem Ipsum dummy",
+            "reassurance-image2": "shopify:\/\/shop_images\/serviceicon2_e90da2f5-c3ca-437f-aeb7-ee334261083a.png",
             "reassurance-title2": "Big Savings",
             "reassurance-desc2": "Lorem Ipsum dummy",
+            "reassurance-image3": "shopify:\/\/shop_images\/serviceicon3_c7220254-a265-4348-98bf-b3a6ec0ca729.png",
             "reassurance-title3": "Customer Support",
             "reassurance-desc3": "Lorem Ipsum dummy",
+            "reassurance-image4": "shopify:\/\/shop_images\/serviceicon4.png",
             "reassurance-title4": "Gift Voucher",
             "reassurance-desc4": "Lorem Ipsum dummy",
             "reassurance_margin": 20
@@ -84,6 +87,7 @@
         "trusted_image": {
           "type": "trusted_image",
           "settings": {
+            "trust-image": "shopify:\/\/shop_images\/Trustedimage_73a6da00-06b0-497f-a8a5-b974089b9419.png",
             "trusted_image_margin": 20
           }
         },
@@ -91,11 +95,6 @@
           "type": "share",
           "settings": {
             "share_margin": 5
-          }
-        },
-        "9d7a3dca-d451-46ee-9989-1ca5a66ead95": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
           }
         }
       },
@@ -111,8 +110,7 @@
         "buy_buttons",
         "reassurance",
         "trusted_image",
-        "0325e728-054b-430f-a8e0-5866fa97bef5",
-        "9d7a3dca-d451-46ee-9989-1ca5a66ead95"
+        "0325e728-054b-430f-a8e0-5866fa97bef5"
       ],
       "settings": {
         "enable_sticky_product": true,
