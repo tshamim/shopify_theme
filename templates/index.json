@@ -86,6 +86,52 @@
         "section_bottom_spacing_mobile": 30
       }
     },
+    "165296299510640bb1": {
+      "type": "Ishi_collectionblock",
+      "blocks": {
+        "165296299569c9e1b1-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "165296299569c9e1b1-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "165296299569c9e1b1-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "165296299569c9e1b1-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "165296299569c9e1b1-0",
+        "165296299569c9e1b1-1",
+        "165296299569c9e1b1-2",
+        "165296299569c9e1b1-3"
+      ],
+      "settings": {
+        "hometitle": "OUR COLLECTION",
+        "collection_background": "box",
+        "image_ratio": "square",
+        "swipe_on_mobile": false,
+        "show_view_all": false,
+        "show_collection_item": true,
+        "grid": "4",
+        "section_bottom_spacing_desktop": 60,
+        "section_bottom_spacing_mobile": 20
+      }
+    },
     "16321305851f137848": {
       "type": "Ishi_productsblockstyle1",
       "blocks": {
@@ -453,6 +499,7 @@
   "order": [
     "16289212707c98911d",
     "163170057031e3852d",
+    "165296299510640bb1",
     "16321305851f137848",
     "16325667563eb3caea",
     "163178306373e64ca0",
