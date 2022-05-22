@@ -427,10 +427,10 @@
           "headertitle": "",
           "logo": "shopify:\/\/shop_images\/final-logo-1_400x_7a4938dd-6699-4701-90c8-33d5defa2b66.webp",
           "logo_max_width": "180",
-          "show_social": false,
-          "show_checkout": false,
-          "show_wishlist": false,
-          "show_contact": false,
+          "show_social": true,
+          "show_checkout": true,
+          "show_wishlist": true,
+          "show_contact": true,
           "enable_country_selector": false,
           "enable_language_selector": false
         }
