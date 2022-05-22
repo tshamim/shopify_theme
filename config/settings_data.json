@@ -118,6 +118,14 @@
               "show_social": true,
               "block_width": 27
             }
+          },
+          "658b00d4-2bbe-408d-8e47-751d67dbb8d1": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer",
+              "block_width": 25
+            }
           }
         },
         "block_order": [
@@ -126,7 +134,8 @@
           "c76dedd0-f80c-4199-baf0-f0af4b51dc4c",
           "1891de53-ba98-480c-b8c4-78a4160d65a6",
           "2135eda1-2831-4a64-a331-a00a983e1925",
-          "53f044df-20c3-487b-8907-cd205d8c1660"
+          "53f044df-20c3-487b-8907-cd205d8c1660",
+          "658b00d4-2bbe-408d-8e47-751d67dbb8d1"
         ],
         "settings": {
         }
@@ -185,6 +194,16 @@
       },
       "copyright_payment": {
         "type": "copyright_payment",
+        "blocks": {
+          "3210083f-a113-43a6-9faf-f7f5cbca2af9": {
+            "type": "logo_image",
+            "settings": {
+            }
+          }
+        },
+        "block_order": [
+          "3210083f-a113-43a6-9faf-f7f5cbca2af9"
+        ],
         "settings": {
           "copyright": "© 2022, theme customized by shamim ahammed",
           "payment_enable": true,
@@ -225,7 +244,7 @@
       "cookieconsent": {
         "type": "cookieconsent",
         "settings": {
-          "enable": true,
+          "enable": false,
           "cookieconsent_position": "left",
           "cookieconsent_description": "<p>This is a cookie consent dialog which comes free of cost with the theme! You can use it if you want or disable it.<\/p>",
           "cookieconsent_btntext": "Got it!",
