@@ -13,10 +13,10 @@
         "blogsubtitle": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod bbtempor incididunt ut labore.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod bbtempor incididunt ut labore.<\/p>",
         "blog": "news",
         "post_limit": 3,
-        "blog_show_author": false,
+        "blog_show_author": true,
         "blog_show_date": true,
         "blog_show_comment": true,
-        "show_view_all": false,
+        "show_view_all": true,
         "section_bottom_spacing_desktop": 70,
         "section_bottom_spacing_mobile": 30
       }
